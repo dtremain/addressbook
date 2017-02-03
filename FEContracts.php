@@ -22,22 +22,22 @@
         <table  id="menu1" class="XulMenu">
         <tr>
             <td>
-                <a class="button" href="addressbook.php">Address book</a>
+                <a class="button" href="addressbook/addressbook.php">Address book</a>
                 
             </td>
 			
 			<td>
-                <a class="button" href="NFContracts.php">NF Contracts</a>
+                <a class="button" href="/NFContracts.php">NF Contracts</a>
                 
             </td>
 			
 			<td>
-                <a class="button" href="FEContracts.php">FE Contracts</a>
+                <a class="button" href="/FEContracts.php">FE Contracts</a>
                 
             </td>
 			
 			<td>
-                <a class="button" href="NFChangeOrders.php">NF Change Order</a>
+                <a class="button" href="/NFChangeOrders.php">NF Change Order</a>
                 
             </td>
 			

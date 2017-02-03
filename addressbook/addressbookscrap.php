@@ -244,10 +244,10 @@ function checkForm(thisform)
 <div id="bar">
   <table  id="menu1" class="XulMenu">
     <tr>
-      <td><a class="button" href="addressbook.php">Address book</a></td>			
-			<td><a class="button" href="NFContracts.php">NF Contracts</a></td>			
-			<td><a class="button" href="FEContracts.php">FE Contracts</a></td>			
-			<td><a class="button" href="NFChangeOrders.php">NF Change Order</a></td>			
+      <td><a class="button" href="/addressbook/addressbook.php">Address book</a></td>			
+			<td><a class="button" href="/NFContracts.php">NF Contracts</a></td>			
+			<td><a class="button" href="/FEContracts.php">FE Contracts</a></td>			
+			<td><a class="button" href="/NFChangeOrders.php">NF Change Order</a></td>			
     </tr>
   </table>
 </div>
@@ -273,7 +273,7 @@ function checkForm(thisform)
 						<input type="radio" name="contracttype" id="mod" value="MODIFICATION"/> Modification - Acct # <input type="text" name="acct" /><br>
 					</td>
 					<td width="35%">
-						<input type="radio" name="contracttype" id="instantpay" value="INSTANT PAY" /> Pay @ Scale<br>
+						<input type="radio" disabled="disabled" name="contracttype" id="instantpay" value="INSTANT PAY" /> Pay @ Scale<br>
 					</td>
 				</tr>
 
@@ -1108,20 +1108,65 @@ function checkForm(thisform)
 					<script>			   
 					$("#purchase, #sale").click(function(){
 							if (this.id == "purchase")
-								$("#saleCtype").hide();							
+                                $("#saleCtype").hide();
+                                $("#trader").hide();
+                                $("#fetrader").show();
+                                $("#nftrader").show();
 							else
 								$("#saleCtype").show();							
+                                $("#trader").show();
+                                $("#fetrader").hide();
+                                $("#nftrader").hide();
 						});
 					</script>
 			</tr>
+            <tr>
+                <?php $xml = simplexml_load_file("../xml/traders.xml");?>
+                <td>Trader:</td>
+                <td>
+                    <select type="text" name="trader">
+                        <option value"000" selected></option>
+                        <?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
+                    </select>
+                </td>
+            </tr>
 			<tr>
-				<?php $xml = simplexml_load_file("../xml/traders.xml");?>
-				<td>Trader:</td>
-				<td><select type="text" name="trader" >
+				<?php $xml = simplexml_load_file("../xml/fetraders.xml");?>
+				<td>Ferrous Trader:</td>
+				<td><select type="text" name="fetrader" >
 					<option value"000" selected></option>
 					<?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
 					</select></td>
 			</tr>
+            <tr>
+                <?php $xml = simplexml_load_file("../xml/nftraders.xml");?>
+                <td>Non-Ferrous Trader:</td>
+                <td>
+                    <select type="text" name="nftrader">
+                        <option value"000" selected></option>
+                        <?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Environmental Certification:</td>
+                <td>
+                    <select type="text" name="envcert">
+                        <option value"000" selected></option>
+                        <option>YES</option>
+                        <option>NO</option>
+                    </select>
+                </td>
+                <script>
+
+					$("#purchase, #sale").click(function(){
+						if (this.id == "purchase")
+							$("#envcert").hide();
+						else
+							$("#envcert").show();
+						});
+                </script>
+            </tr>
 			<tr id="pinvoice" >
 				<td>Print Invoice:</td>
 				<td><select type="text" name ="pinvoice">

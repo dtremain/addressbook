@@ -106,10 +106,10 @@
 <div id="bar">
   <table  id="menu1" class="XulMenu">
     <tr>
-      <td><a class="button" href="addressbook.php">Address book</a></td>			
-			<td><a class="button" href="NFContracts.php">NF Contracts</a></td>			
-			<td><a class="button" href="FEContracts.php">FE Contracts</a></td>			
-			<td><a class="button" href="NFChangeOrders.php">NF Change Order</a></td>			
+      <td><a class="button" href="/addressbook/addressbook.php">Address book</a></td>			
+			<td><a class="button" href="/NFContracts.php">NF Contracts</a></td>			
+			<td><a class="button" href="/FEContracts.php">FE Contracts</a></td>			
+			<td><a class="button" href="/NFChangeOrders.php">NF Change Order</a></td>			
     </tr>
   </table>
 </div>
@@ -149,8 +149,8 @@
 						<input type="radio" name="nttype" id="ntt3" value="EMPLOYEE"> Employee<br />
 					</td>
 					<td width="70%">
-						<input type="radio" name="nttype" id="ntt4" value="MRO(MAXIMO/JDE)"> MRO(Maximo/JDE)<br />
-						<input type="radio" name="nttype" id="ntt5" value="TAX ID OR SS#"> Tax ID or SS# (W-9 Required)<br />
+						<input type="radio" name="nttype" id="ntt4" value="JDE E9 (NEW)"> MRO(Maximo/JDE)<br />
+						<input type="radio" name="nttype" id="ntt5" value="JDE XE (OLD - RIMAS & Misc Vendor)"> Tax ID or SS# (W-9 Required)<br />
 						<input type="radio" name="nttype" id="ntt6" value="OTM"> OTM<br />
 					</td>
 				</tr>
@@ -212,6 +212,9 @@
 			
 			
 			<tr><td><br></td></tr>
+            <tr>
+                <td width=" 100%">NOTE: W9 required for initial set-up.</td>
+            </tr>
 			<tr><td><br></td></tr>
 			
 	<!-- *********************************Mailing Address *************************************************************-->		
@@ -507,6 +510,14 @@
 					});
 			</script>
 			</tr>
+            <tr>
+                <td>Supplier Certification: </td>
+                <td><input type="checkbox" name="Certificate" id="Certificate"</td>
+            </tr>
+            <tr>
+                <td>Paid Under Contract: </td>
+                <td><input type="checkbox" name="PdUnderContract" id="PdUnderContract"</td>
+            </tr>
 			<tr>
 				<td>Contact:</td>
 				<td><input type="text" name="contact" id="contact" size="35" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
