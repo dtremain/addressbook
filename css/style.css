@@ -1,0 +1,356 @@
+
+
+@media print {
+   thead {display: table-header-group;}
+}
+
+*
+{
+	margin: 0px;
+}
+
+body
+{
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 13px;
+	padding: 0px;
+	background-color: #ffffff;
+	color: #222222;
+}
+
+a
+{
+	background-color: inherit;
+	color: #0000EE;
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+p
+{
+	text-align: justify;
+	margin-bottom: 15px;
+	line-height: 22px;
+}
+
+ul
+{
+	list-style: disc;
+	padding-left: 15px;
+	margin-bottom: 15px;
+}
+
+h3
+{
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+
+h4
+{
+	font-size: 13px;
+	margin-bottom: 5px;
+}
+
+#header
+{
+	background-color: black;
+	color: #fff;
+	padding: 0px 0px 0px 190px;
+}
+
+#header h1
+{
+	font-size: 40px;
+	padding: 0px 0px 0px 150px;
+}
+
+#header h2
+{
+	font-size: 14px;
+}
+
+#menu
+{
+	padding: 5px 30px 0px 30px;
+	margin-bottom: 30px;
+	color: #222222;
+	background-color: #f5f5f5;
+	border-bottom: solid 1px #DADADA;
+}
+
+#menu div
+{
+	clear: both;
+}
+
+#menu ul
+{
+	display: block;
+	position: relative;
+	top: 1px;
+	list-style: none;
+	padding: 0px;
+	margin-bottom: 0px;
+}
+	
+#menu ul li
+{
+	position: relative;
+	float: left;
+	border: solid 1px #dadada;
+	border-bottom: 0px;
+	margin-right: 5px;
+}
+
+#menu ul li a
+{
+	display: block;
+	padding: 5px 10px 8px 10px;
+	text-decoration: none;
+	background-color: inherit;
+	color: #333333;
+}
+
+#menu ul li a:hover
+{
+	background-color: #0022AA;
+	color: #fff;
+}
+
+#menu ul li.active, #menu ul li.active a, #menu ul li.active a:hover
+{
+	background-color: #ffffff;
+	color: #333333;
+}
+
+#container
+{
+	margin: 0px 40px 0px 40px;
+}
+
+#primarycontainer
+{
+	float: left;
+	margin-right: -200px;
+	width: 100%;
+}
+
+#primarycontent
+{
+	margin-right: 240px;
+}
+
+#primarycontent p
+{
+	margin-bottom: 20px;
+}
+
+#secondarycontent
+{
+	float: right;
+	width: 200px;
+	
+}
+
+#footer
+{
+	padding: 0px 0px 0px 400px;
+	margin: 20px 0px 0px 0px;
+	padding-top: 15px;
+	border-top: solid 1px #DADADA;
+	clear: both;
+}
+
+.clearit
+{
+	clear: both;
+	height: 1px;
+}
+
+#form
+{
+	width: 400px;
+}
+
+.formfield
+{
+	float:right;
+}
+
+
+
+.XulMenu {
+	display: block;
+	padding: 5px 30px 0px 30px;
+	margin-bottom: 30px;
+	color: #222222;
+	background-color: #f5f5f5;
+	border-bottom: solid 1px #DADADA;
+	
+   
+}
+.XulMenu .button,
+.XulMenu .button:hover,
+.XulMenu .button-active,
+.XulMenu .button-active:hover {
+	
+    line-height: normal;
+    padding: 5px 30px 0px 30px;
+    border: 1px solid #ECE9D8;
+    color: #000000;
+    text-decoration: none;
+    cursor: default;
+    white-space: nowrap;
+    display: block;
+    position: relative;
+}
+.XulMenu .button:hover {
+	
+	background-color: #0022AA;
+	color: #fff;
+    border-color: #ffffff #ACA899 #ACA899 #ffffff;
+}
+.XulMenu .button-active,
+.XulMenu .button-active:hover {
+    border-color: #ACA899 #ffffff #ffffff #ACA899;
+	background-color: gray;
+}
+.XulMenu .item,
+.XulMenu .item:hover,
+.XulMenu .item-active,
+.XulMenu .item-active:hover {
+    background: #ffffff;
+    line-height: normal;
+    padding: 5px 30px 0px 30px;
+    color: #000000;
+    text-decoration: none;
+    cursor: default;
+    white-space: nowrap;
+    display: block;
+    position: relative;
+}
+.XulMenu .item:hover,
+.XulMenu .item-active,
+.XulMenu .item-active:hover {
+    background: #316AC5;
+    color: #ffffff;
+}
+.XulMenu .section {
+    background: #ffffff;
+    border: 1px solid;
+    border-color: #F1EFE2 #716F64 #716F64 #F1EFE2;
+    padding: 2px 1px 1px 2px;
+    position: absolute;
+    visibility: hidden;
+    z-index: -1;
+}
+.XulMenu .arrow {
+    position: absolute;
+    top: 7px;
+    right: 8px;
+    border: 0;
+}
+
+* html .XulMenu td { position: relative; } /* ie 5.0 fix */
+
+
+/* calendar icon */
+img.tcalIcon {
+	cursor: pointer;
+	margin-left: 1px;
+	vertical-align: middle;
+}
+/* calendar container element */
+div#tcal {
+	position: absolute;
+	visibility: hidden;
+	z-index: 100;
+	width: 158px;
+	padding: 2px 0 0 0;
+}
+/* all tables in calendar */
+div#tcal table {
+	width: 100%;
+	border: 1px solid silver;
+	border-collapse: collapse;
+	background-color: white;
+}
+/* navigation table */
+div#tcal table.ctrl {
+	border-bottom: 0;
+}
+/* navigation buttons */
+div#tcal table.ctrl td {
+	width: 15px;
+	height: 20px;
+}
+/* month year header */
+div#tcal table.ctrl th {
+	background-color: white;
+	color: black;
+	border: 0;
+}
+/* week days header */
+div#tcal th {
+	border: 1px solid silver;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 3px 0;
+	font-family: tahoma, verdana, arial;
+	font-size: 10px;
+	background-color: gray;
+	color: white;
+}
+/* date cells */
+div#tcal td {
+	border: 0;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 2px 0;
+	font-family: tahoma, verdana, arial;
+	font-size: 11px;
+	width: 22px;
+	cursor: pointer;
+}
+/* date highlight
+   in case of conflicting settings order here determines the priority from least to most important */
+div#tcal td.othermonth {
+	color: silver;
+}
+div#tcal td.weekend {
+	background-color: #ACD6F5;
+}
+div#tcal td.today {
+	border: 1px solid red;
+}
+div#tcal td.selected {
+	background-color: #FFB3BE;
+}
+/* iframe element used to suppress windowed controls in IE5/6 */
+iframe#tcalIF {
+	position: absolute;
+	visibility: hidden;
+	z-index: 98;
+	border: 0;
+}
+/* transparent shadow */
+div#tcalShade {
+	position: absolute;
+	visibility: hidden;
+	z-index: 99;
+}
+div#tcalShade table {
+	border: 0;
+	border-collapse: collapse;
+	width: 100%;
+}
+div#tcalShade table td {
+	border: 0;
+	border-collapse: collapse;
+	padding: 0;
+}
+

@@ -1,0 +1,70 @@
+<html>
+<head>
+<script>
+// Enter the subject to appear in the email subject line
+subject = "Address Book Form";
+
+// Enter your email address
+email = "dslone@omnisource.com";
+
+/* If you want to change the name of the form, just open this script in 
+notepad and click on edit, then click replace.  Enter "yourFormName" as the
+search term and enter the new form name as the replace term. */
+
+function sendform() {
+
+if (document.yourFormName.html.checked) {
+
+	var names = new Array();
+	var values = new Array();
+
+	for (j = 0; j < document.yourFormName.length - 2; ++j) {
+		names[j] = document.yourFormName.elements[j].name;
+		values[j] = document.yourFormName.elements[j].value;
+	}
+
+	var content = "<html>\n<head>\n<title>" + names[0] + ": " + values[0] + "</title>\n</head>\n<body>\n<table cellpadding=5 cellspacing=0 border=1>\n";
+
+	for (i in names) {
+		content += "<tr>\n<td align=center><b>" + names[i] + ":</b></td>\n<td align=center>" + values[i] + "</td>\n</tr>\n";
+	}
+
+	content += "</table>\n</body>\n</html>";
+	window.open("mailto:" + email + "?subject=" + subject + "&body=" + content,"_self");
+
+} else {
+
+	var data = "";
+	for (j = 0; j < document.yourFormName.length - 2; ++j) {
+		if (j != document.yourFormName.length - 3) {
+		data += document.yourFormName.elements[j].name + ": " + document.yourFormName.elements[j].value + "&body=";
+		} else {
+		data += document.yourFormName.elements[j].name + ": " + document.yourFormName.elements[j].value;
+		}
+	}
+
+	window.open("mailto:" + email + "?subject=" + subject + "&body=" + data,"_self");
+
+}
+
+}
+
+
+</script>
+</head>
+<body>
+<center>
+<form name="yourFormName">
+
+<!-- enter your input tags below -->
+<input type="text" name="Name" value="Jim Jones"><br><br>
+<input type="text" name="Address" value="19700 S 148th Ter"><br><br>
+<input type="text" name="Phone" value="467-567-0098"><br><br>
+
+<!-- do not alter the tags below -->
+<input type="button" value="Send" onclick="sendform()"> &nbsp; 
+<input type="checkbox" name="html" value=""> Include HTML
+</form>
+</center>
+</body>
+</html>

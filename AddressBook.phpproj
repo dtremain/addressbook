@@ -1,0 +1,38 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>AddressBook</Name>
+    <ProjectGuid>{3a633a64-8ef7-4b51-a140-a8970029cc92}</ProjectGuid>
+    <RootNamespace>
+    </RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <Runtime>PHP</Runtime>
+    <RuntimeVersion>7.0</RuntimeVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include=".gitattributes" />
+    <Compile Include=".gitignore" />
+    <Compile Include="addressbook.php" />
+    <Compile Include="addressbookemail.php" />
+    <Compile Include="addressbooknscarrier.php" />
+    <Compile Include="addressbooknsnontrade.php" />
+    <Compile Include="addressbookscrap.php" />
+    <Compile Include="addressbookscrapinstant.php" />
+    <Compile Include="addressbookscrap_old.php" />
+    <Compile Include="FEContracts.php" />
+    <Compile Include="mail.php" />
+    <Compile Include="NFChangeOrders.php" />
+    <Compile Include="NFContracts.php" />
+    <Compile Include="nonscrapchoice.php" />
+    <Compile Include="old_addressbookemail.php" />
+    <Compile Include="phpinfo.php" />
+    <Compile Include="test.html" />
+  </ItemGroup>
+</Project>
