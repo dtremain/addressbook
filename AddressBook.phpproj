@@ -78,4 +78,7 @@
     <Folder Include="img" />
     <Folder Include="javascripts" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="javascripts\ie5.js" />
+  </ItemGroup>
 </Project>

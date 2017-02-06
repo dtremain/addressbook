@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<atype>
+					<option>CUSTOMER</option>
+					<option>FRT CARRIER</option>
+					<option>SUPPLIER</option>
+					<option>YARD LOCATION</option>
+</atype>

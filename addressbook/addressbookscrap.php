@@ -272,19 +272,7 @@ function checkForm(thisform)
 					<td width="40%">
 						<input type="radio" name="contracttype" id="mod" value="MODIFICATION"/> Modification - Acct # <input type="text" name="acct" /><br>
 					</td>
-					<td width="35%">
-						<input type="radio" disabled="disabled" name="contracttype" id="instantpay" value="INSTANT PAY" /> Pay @ Scale<br>
-					</td>
 				</tr>
-
-				<script>
-					$("#instantpay").click(
-						function(){
-							if (this.id == "instantpay")
-								window.location.href = 'addressbookscrapinstant.php';
-						}
-					);
-				</script>
 				</table>
 			</fieldset>
 			<br>
@@ -1109,18 +1097,12 @@ function checkForm(thisform)
 					$("#purchase, #sale").click(function(){
 							if (this.id == "purchase")
                                 $("#saleCtype").hide();
-                                $("#trader").hide();
-                                $("#fetrader").show();
-                                $("#nftrader").show();
 							else
 								$("#saleCtype").show();							
-                                $("#trader").show();
-                                $("#fetrader").hide();
-                                $("#nftrader").hide();
 						});
 					</script>
 			</tr>
-            <tr>
+            <tr id="strader">
                 <?php $xml = simplexml_load_file("../xml/traders.xml");?>
                 <td>Trader:</td>
                 <td>
@@ -1129,17 +1111,35 @@ function checkForm(thisform)
                         <?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
                     </select>
                 </td>
+                <script>
+                $("#purchase, #sale").click(function(){
+                    if (this.id == "purchase")
+                        $("#strader").hide();
+                    else
+                        $("#strader").show();
+                });
+                </script>
+                <?php $xml->rewind; ?>
             </tr>
-			<tr>
-				<?php $xml = simplexml_load_file("../xml/fetraders.xml");?>
-				<td>Ferrous Trader:</td>
-				<td><select type="text" name="fetrader" >
-					<option value"000" selected></option>
-					<?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
-					</select></td>
-			</tr>
-            <tr>
-                <?php $xml = simplexml_load_file("../xml/nftraders.xml");?>
+            <tr id="pfetrader">
+                <td>Ferrous Trader:</td>
+                <td>
+                    <select type="text" name="fetrader">
+                        <option value"000" selected></option>
+                        <?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
+                    </select>
+                </td>
+                <script>
+                $("#purchase, #sale").click(function(){
+                    if (this.id == "sale")
+                        $("#pfetrader").hide();
+                    else
+                        $("#pfetrader").show();
+                });
+                </script>
+                <?php $xml->rewind; ?>
+            </tr>
+            <tr id="pnftrader">
                 <td>Non-Ferrous Trader:</td>
                 <td>
                     <select type="text" name="nftrader">
@@ -1147,8 +1147,36 @@ function checkForm(thisform)
                         <?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
                     </select>
                 </td>
+                <script>
+                $("#purchase, #sale").click(function(){
+                    if (this.id == "purchase")
+                        $("#pnftrader").show();
+                    else
+                        $("#pnftrader").hide();
+                });
+                </script>
+                <?php $xml->rewind; ?>
             </tr>
-            <tr>
+            <tr id="pSupplierCert">
+                <td>Supplier Certificate:</td>
+                <td>
+                    <select type="text" name="sSupCert" id="sctype">
+                        <option value"000" selected></option>
+                        <option>YES</option>
+                        <option>NO</option>
+                    </select>
+                </td>
+                <script>
+
+					$("#purchase, #sale").click(function(){
+							if (this.id == "sale")
+                                $("#pSupplierCert").hide();
+							else
+								$("#pSupplierCert").show();
+						});
+                </script>
+            </tr>
+            <tr id="senvcert">
                 <td>Environmental Certification:</td>
                 <td>
                     <select type="text" name="envcert">
@@ -1161,13 +1189,33 @@ function checkForm(thisform)
 
 					$("#purchase, #sale").click(function(){
 						if (this.id == "purchase")
-							$("#envcert").hide();
+							$("#senvcert").hide();
 						else
-							$("#envcert").show();
+							$("#senvcert").show();
 						});
                 </script>
             </tr>
-			<tr id="pinvoice" >
+            <tr id="pPdUndCon">
+                <?php $xml = simplexml_load_file("../xml/ctypesale.xml");?>
+                <td>Paid Under Contract:</td>
+                <td>
+                    <select type="text" name="PdUnderContract" id="sctype">
+                        <option value"000" selected></option>
+                        <option>YES</option>
+                        <option>NO</option>
+                    </select>
+                </td>
+                <script>
+
+					$("#purchase, #sale").click(function(){
+							if (this.id == "sale")
+                                $("#pPdUndCon").hide();
+							else
+								$("#pPdUndCon").show();
+						});
+                </script>
+            </tr>
+			<tr id="spinvoice" >
 				<td>Print Invoice:</td>
 				<td><select type="text" name ="pinvoice">
 					<option value"000" selected></option>
@@ -1177,9 +1225,9 @@ function checkForm(thisform)
 				<script>					
 					$("#purchase, #sale").click(function(){
 						if (this.id == "purchase")
-							$("#pinvoice").hide();						
+							$("#spinvoice").hide();						
 						else
-							$("#pinvoice").show();							
+							$("#spinvoice").show();							
 						});
 				</script>
 			</tr>

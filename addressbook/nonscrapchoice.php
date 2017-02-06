@@ -65,9 +65,9 @@
 	
 	  	  
 	 
-			<table>
+			<table width="100%">
 			<tr id="mySelect">
-				<td><input type="radio" name="selectnonscrap" id="carrier" value="CARRIER" /> Carrier<br /></td>
+				<td width="30%"><input type="radio" name="selectnonscrap" id="carrier" value="CARRIER" /> Carrier<br /></td>
 				<td><input type="radio" name="selectnonscrap" id="nontrade" value="NONTRADE" /> Non-Trade<br /></td>
 			</tr>
 			

@@ -65,9 +65,9 @@
 	
 	  	  
 	 
-			<table>
+			<table width="100%">
 			<tr id="mySelect">
-				<td><input type="radio" name="selectscrap" id="scrap" value="scrap" /> Scrap<br /></td>
+				<td width="30%"><input type="radio" name="selectscrap" id="scrap" value="scrap" /> Scrap<br /></td>
 				<td><input type="radio" name="selectscrap" id="nonscrap" value="nonscrap" /> Non-Scrap<br /></td>
 			</tr>
 			

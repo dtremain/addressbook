@@ -121,6 +121,9 @@ function checkForm(thisform){
 			<fieldset >
 				<legend><font size="2" ><b>Request Type - Instant Pay</b></font></legend>
 				<table width="100%" cellpadding="10" cellspacing="0" border="0">
+                    <tr>PAY @ SCALE</tr>
+                    <tr>PAY @ SCALE</tr>
+                    <tr>PAY @ SCALE</tr>
 				<tr>
 					<td width="25%">
 						<input type="radio" name="contracttype" id="new" value="NEW ACCOUNT" /> New Acct<br>
