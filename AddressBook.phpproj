@@ -22,7 +22,6 @@
     <Compile Include="addressbook\addressbooknscarrier.php" />
     <Compile Include="addressbook\addressbooknsnontrade.php" />
     <Compile Include="addressbook\addressbookscrap.php" />
-    <Compile Include="addressbook\addressbookscrapinstant.php" />
     <Compile Include="addressbook\nonscrapchoice.php" />
     <Compile Include="addressbook\test.html" />
     <Compile Include="backup\addressbooknsnontrade.php" />

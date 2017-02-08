@@ -150,12 +150,10 @@
                         <td width="30%">
                             <input type="radio" name="nttype" id="ntt2" value="RELATED OR INTERCOMPANY"> Related or Inter company<br />
                             <input type="radio" name="nttype" id="ntt3" value="EMPLOYEE"> Employee<br />
-                            <br />
                         </td>
                         <td width="70%">
                             <input type="radio" name="nttype" id="ntt4" value="JDEE9"> JDE E9 (NEW)<br />
                             <input type="radio" name="nttype" id="ntt5" value="JDEXE"> JDE XE (OLD - RIMAS & Misc Vendor)<br />
-                            <input type="radio" name="nttype" id="ntt6" value="OTM"> OTM<br />
                         </td>
                     </tr>
                     </table>
@@ -188,7 +186,7 @@
                 <br />
             </div>
             <script>
-					$("#ntt2, #ntt3, #ntt4, #ntt5, #ntt6").click(function(){
+					$("#ntt2, #ntt3, #ntt4, #ntt5").click(function(){
 							if (this.value == "NON-INTERCOMPANY")
 								$("#tos").show();
 							else
@@ -201,12 +199,12 @@
                 <table width="100%" cellpadding="10" cellspacing="0" border="0">
                     <tr>
                         <td width="30%">
-                            <input type="radio" name="trantype" id="purchase" value="PURCHASE" /> Purchase<br>
+                            <input type="radio" name="trantype" id="purchase" value="PURCHASE"/> Purchase<br>
                         </td>
-                        <td width="35%">
+                        <td width="35%" style="display:none">
                             <input type="radio" name="trantype" id="sale" value="SALE" /> Sale<br>
                         </td>
-                        <td width="35%">
+                        <td width="35%" style="display:none">
                             <input type="radio" name="trantype" id="both" value="PURCHASE/SALE" /> Both<br>
                         </td>
                     </tr>
@@ -412,139 +410,6 @@
                         </script>
                     </tr>
 
-                    <!-- ********************************* Bill To Address *************************************************************-->
-                    <tr id="BillTo">
-                        <td></td>
-                        <td><h2>Bill To Address</h2></td>
-                        <td><input type="checkbox" name="billtosame" id="BillTosame" onClick="same_as_billing('BillTo')" />Same as Legal</td>
-                        <script>
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "purchase")
-							$("#BillTo").hide();
-						else
-							$("#BillTo").show();
-					});
-                        </script>
-                    </tr>
-                    <tr id="BillToName">
-                        <td>Name: </td>
-                        <td><input type="text" name="BillToName" size="50" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
-                        <script>
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "purchase")
-							$("#BillToName").hide();
-						else
-							$("#BillToName").show();
-					});
-                        </script>
-                    </tr>
-                    <tr id="BillTomailaddress">
-                        <td>Address: </td>
-                        <td><input type="text" name="BillToAddress" size="50" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "purchase")
-							$("#BillTomailaddress").hide();
-						else
-							$("#BillTomailaddress").show();
-					});
-                        </script>
-                    </tr>
-                    <tr id="BillTomailaddress1">
-                        <td></td>
-                        <td><input type="text" name="BillToAddress1" id="BillToAddress1" size="50" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "purchase")
-							$("#BillTomailaddress1").hide();
-						else
-							$("#BillTomailaddress1").show();
-					});
-                        </script>
-                    </tr>
-                    <tr id="BillToCity">
-                        <td>City:</td>
-                        <td><input type="text" name="BillToCity" size="35" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "purchase")
-							$("#BillToCity").hide();
-						else
-							$("#BillToCity").show();
-					});
-                        </script>
-                    </tr>
-                    <tr id="BillToState">
-                        <?php $xml = simplexml_load_file("../xml/states.xml");?>
-                        <td>State:</td>
-                        <td>
-                            <select type="text" name="BillToState">
-                                <option value"000" selected></option>
-                                <?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
-                            </select>
-                        </td>
-                        <script>
-					$("#purchase, #sale, #both").click(function(){
-						if (this.id == "purchase")
-							$("#BillToState").hide();
-						else
-							$("#BillToState").show();
-					});
-                        </script>
-                    </tr>
-                    <tr id="BillToZip">
-                        <td>Mail Code:</td>
-                        <td><input type="text" name="BillToZip" size="6" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
-                        <script>
-					$("#purchase, #sale, #both").click(function(){
-							if (this.id == "purchase")
-								$("#BillToZip").hide();
-							else
-								$("#BillToZip").show();
-						});
-                        </script>
-                    </tr>
-                    <tr id="BillToCountry">
-                        <?php $xml = simplexml_load_file("../xml/countries.xml");?>
-                        <td>Country:</td>
-                        <td>
-                            <select type="text" name="BillToCountry">
-                                <option value"000" selected></option>
-                                <?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
-                            </select>
-                        </td>
-                        <script>
-					$("#purchase, #sale, #both").click(function(){
-							if (this.id == "purchase")
-								$("#BillToCountry").hide();
-							else
-								$("#BillToCountry").show();
-						});
-                        </script>
-                    </tr>
-                    <!-- Leave blank line after address section -->
-                    <tr id="BillToTrailer">
-                        <td><br /></td>
-                        <script>
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "purchase")
-							$("#BillToTrailer").hide();
-						else
-							$("#BillToTrailer").show();
-					});
-                        </script>
-                    </tr>
-                    <tr>
-                        <td>Supplier Certification: </td>
-                        <td><input type="checkbox" name="Certificate" id="Certificate"</td>
-                    </tr>
-                    <tr>
-                        <td>Paid Under Contract: </td>
-                        <td><input type="checkbox" name="PdUnderContract" id="PdUnderContract"</td>
-                    </tr>
                     <tr>
                         <td>Contact:</td>
                         <td><input type="text" name="contact" id="contact" size="35" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
@@ -552,6 +417,10 @@
                     <tr>
                         <td>Contact Telephone:</td>
                         <td><input type="text" name="Telephone" id="telephone" size="35" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
+                    </tr>
+                    <tr>
+                        <td>Contact E-Mail:</td>
+                        <td><input type="text" name="ContEMail" id="ContEMail" size="35" ></td>
                     </tr>
                     <tr>
                         <td>Comments: </td>

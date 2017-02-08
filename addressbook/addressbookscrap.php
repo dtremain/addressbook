@@ -28,7 +28,7 @@
 function checkForm(thisform)
 {
 	//If No Contract type is checked. (NEW or MODIFIED)
-  if((thisform.contracttype[0].checked == false)&&(thisform.contracttype[1].checked == false)&&(thisform.contracttype[2].checked == false)){
+  if((thisform.contracttype[0].checked == false)&&(thisform.contracttype[1].checked == false)){
     alert("Please choose a Request Type.");
     return false;
   }
@@ -90,8 +90,12 @@ function checkForm(thisform)
 			  alert("Please choose Customer Type");
 			  return false;
 		  }
-			if(thisform.trader.selectedIndex == 0){
-			  alert("Please choose Trader");
+			if(thisform.fetrader.selectedIndex == 0){
+			  alert("Please choose Ferrous Trader");
+			  return false;
+		  }
+			if(thisform.nftrader.selectedIndex == 0){
+			  alert("Please choose Non-Ferrous Trader");
 			  return false;
 		  }
 			if(thisform.fterms.selectedIndex == 0){
@@ -133,100 +137,6 @@ function checkForm(thisform)
 		}
 	}
 	
-	//If INSTANT PAY is checked.
-	if(thisform.contracttype[2].checked == true){
-		if((thisform.trantype[0].checked == false)&&(thisform.trantype[1].checked == false)){
-		  alert("Please Choose a Transaction Type.");
-		  return false;
-		}
-		if(thisform.name.value==''){
-		  alert("Legal Address Name required");
-		  return false;
-	  }
-		if(thisform.address.value==''){
-		  alert("Legal Address Address required");
-		  return false;
-	  }
-		if(thisform.City.value==''){
-		  alert("Legal Address City required");
-		  return false;
-	  }
-		if(thisform.State.selectedIndex == 0){
-		  alert("Legal Address State required");
-		  return false;
-	  }
-		if(thisform.zip.value==''){
-		  alert("Legal Address Zip required");
-		  return false;
-	  }
-		if(thisform.contact.value==''){
-		  alert("Contact required");
-		  return false;
-	  }
-		if(thisform.Telephone.value==''){
-		  alert("Telephone Number required");
-		  return false;
-	  }
-		if(thisform.atype.selectedIndex == 0){
-		  alert("Please choose Account Type");
-		  return false;
-	  }
-
-		//If Purchase is chosen.
-		if(thisform.trantype[0].checked == true){
-			if(thisform.pctype.selectedIndex == 0){
-			  alert("Please choose Customer Type");
-			  return false;
-		  }
-			if(thisform.trader.selectedIndex == 0){
-			  alert("Please choose Trader");
-			  return false;
-		  }
-			if(thisform.fterms.selectedIndex == 0){
-			  alert("Please choose Final Terms");
-			  return false;
-		  }
-			if(thisform.original.selectedIndex == 0){
-			  alert("Please choose Original Terms");
-			  return false;
-		  }
-			if(thisform.shiprequired.selectedIndex == 0){
-			  alert("Please choose if Ship is required");
-			  return false;
-		  }
-		}
-
-		//If Sale is chosen.
-		if(thisform.trantype[1].checked == true){
-			if(thisform.sctype.selectedIndex == 0){
-			  alert("Please choose Customer Type");
-			  return false;
-		  }
-			if(thisform.trader.selectedIndex == 0){
-			  alert("Please choose Trader");
-			  return false;
-		  }
-			if(thisform.pinvoice.selectedIndex == 0){
-			  alert("Please choose if Print Invoice");
-			  return false;
-		  }
-			if(thisform.original.selectedIndex == 0){
-			  alert("Please choose Original Terms");
-			  return false;
-		  }
-		}
-		if(thisform.controller.selectedIndex == 0){
-		  alert("Please Choose a Controller");
-		  return false;
-		}
-	
-		//validate the e-mail address	
-		if(isEmailValid(thisform.from.value)==false){
-			  alert("Enter a valid e-mail address");
-			  return false;
-		}
-	}
-
   //if all is OK submit the form
   thisform.submit();
 }
@@ -282,7 +192,7 @@ function checkForm(thisform)
 				<table width="100%" cellpadding="10" cellspacing="0" border="0">
 				<tr>
 					<td width="25%">
-						<input type="radio" name="trantype"  id="purchase" value="PURCHASE"/> Purchase<br>
+						<input type="radio" name="trantype"  id="purchase" value="PURCHASE" /> Purchase<br>
 					</td>
 					<td width="27%">
 						<input type="radio" name="trantype"  id="sale" value="SALE"/> Sale<br>
@@ -1102,6 +1012,8 @@ function checkForm(thisform)
 						});
 					</script>
 			</tr>
+            <?php $topt = "";?>
+            <?php foreach ($xml->children() as $child); $top.="<option> " . $child . "</option>" ."<br />"; ?>
             <tr id="strader">
                 <?php $xml = simplexml_load_file("../xml/traders.xml");?>
                 <td>Trader:</td>
@@ -1155,73 +1067,23 @@ function checkForm(thisform)
                         $("#pnftrader").hide();
                 });
                 </script>
-                <?php $xml->rewind; ?>
             </tr>
-            <tr id="pSupplierCert">
-                <td>Supplier Certificate:</td>
-                <td>
-                    <select type="text" name="sSupCert" id="sctype">
-                        <option value"000" selected></option>
-                        <option>YES</option>
-                        <option>NO</option>
-                    </select>
-                </td>
-                <script>
-
-					$("#purchase, #sale").click(function(){
-							if (this.id == "sale")
-                                $("#pSupplierCert").hide();
-							else
-								$("#pSupplierCert").show();
-						});
-                </script>
-            </tr>
-            <tr id="senvcert">
-                <td>Environmental Certification:</td>
-                <td>
-                    <select type="text" name="envcert">
-                        <option value"000" selected></option>
-                        <option>YES</option>
-                        <option>NO</option>
-                    </select>
-                </td>
+            <tr id="penvcert">
+                <td>Environmental Certificate on File:</td>
+                <td><input type="checkbox" name="envcert" id="cbecert"</td>
                 <script>
 
 					$("#purchase, #sale").click(function(){
 						if (this.id == "purchase")
-							$("#senvcert").hide();
+							$("#penvcert").show();
 						else
-							$("#senvcert").show();
-						});
-                </script>
-            </tr>
-            <tr id="pPdUndCon">
-                <?php $xml = simplexml_load_file("../xml/ctypesale.xml");?>
-                <td>Paid Under Contract:</td>
-                <td>
-                    <select type="text" name="PdUnderContract" id="sctype">
-                        <option value"000" selected></option>
-                        <option>YES</option>
-                        <option>NO</option>
-                    </select>
-                </td>
-                <script>
-
-					$("#purchase, #sale").click(function(){
-							if (this.id == "sale")
-                                $("#pPdUndCon").hide();
-							else
-								$("#pPdUndCon").show();
+							$("#penvcert").hide();
 						});
                 </script>
             </tr>
 			<tr id="spinvoice" >
 				<td>Print Invoice:</td>
-				<td><select type="text" name ="pinvoice">
-					<option value"000" selected></option>
-					<option>YES</option>
-					<option>NO</option>
-					</select></td>
+                <td><input type="checkbox" name="pinvoice" id="cbpinv"</td>
 				<script>					
 					$("#purchase, #sale").click(function(){
 						if (this.id == "purchase")
@@ -1257,11 +1119,7 @@ function checkForm(thisform)
 			</tr>
 			<tr id="mySelect2">
 				<td>Shipper Inv Required:</td>
-			  <td><select name="shiprequired">
-					<option value"000" selected></option>
-					<option>YES</option>
-					<option>NO</option>
-					</select></td>
+                <td><input type="checkbox" name="shiprequired" id="cbsinvreq"</td>
 				<script>					
 					$("#purchase, #sale").click(function(){
 						if (this.id == "sale")
@@ -1280,23 +1138,6 @@ function checkForm(thisform)
 				<td>Your E-Mail:</td>
 				<td><input type="text" name="from" size="35"></td>
 				<td>ex: someone@omnisource.com</td>
-			</tr>
-			<tr id="mySelect1">
-				<?php $xml = simplexml_load_file("../xml/controllers.xml");?>
-	      <td>Controller:</td>
-				<td><select type="text" name ="controller">
-					<option value"000" selected></option>
-					<?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
-					</select></td>
-				</td>
-				<script>					
-					$("#instantpay, #new, #mod").click(function(){
-						if (this.id == "new" || this.id == "mod")
-							$("#mySelect1").hide();						
-						else
-							$("#mySelect1").show();							
-						});
-				</script>
 			</tr>
 		</table>
 		<br />
