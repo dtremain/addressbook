@@ -98,6 +98,10 @@ function checkForm(thisform)
 			  alert("Please choose Non-Ferrous Trader");
 			  return false;
 		  }
+			if(thisform.envcert.selectedIndex == 0){
+			  alert("Please choose Environmental Certificate on File");
+			  return false;
+		  }
 			if(thisform.fterms.selectedIndex == 0){
 			  alert("Please choose Final Terms");
 			  return false;
@@ -107,7 +111,7 @@ function checkForm(thisform)
 			  return false;
 		  }
 			if(thisform.shiprequired.selectedIndex == 0){
-			  alert("Please choose if Ship is required");
+			  alert("Please choose if Shipper Invoice is required");
 			  return false;
 		  }
 		}
@@ -127,7 +131,7 @@ function checkForm(thisform)
 			  return false;
 		  }
 			if(thisform.pinvoice.selectedIndex == 0){
-			  alert("Please choose if Print Invoice");
+			  alert("Please choose Print Invoice");
 			  return false;
 			}
 		}
@@ -179,7 +183,7 @@ function checkForm(thisform)
 					<td width="25%">
 						<input type="radio" name="contracttype" id="new" value="NEW ACCOUNT" /> New Acct<br>
 					</td>
-					<td width="40%">
+					<td width="75%">
 						<input type="radio" name="contracttype" id="mod" value="MODIFICATION"/> Modification - Acct # <input type="text" name="acct" /><br>
 					</td>
 				</tr>
@@ -1012,8 +1016,6 @@ function checkForm(thisform)
 						});
 					</script>
 			</tr>
-            <?php $topt = "";?>
-            <?php foreach ($xml->children() as $child); $top.="<option> " . $child . "</option>" ."<br />"; ?>
             <tr id="strader">
                 <?php $xml = simplexml_load_file("../xml/traders.xml");?>
                 <td>Trader:</td>
@@ -1031,7 +1033,6 @@ function checkForm(thisform)
                         $("#strader").show();
                 });
                 </script>
-                <?php $xml->rewind; ?>
             </tr>
             <tr id="pfetrader">
                 <td>Ferrous Trader:</td>
@@ -1049,7 +1050,6 @@ function checkForm(thisform)
                         $("#pfetrader").show();
                 });
                 </script>
-                <?php $xml->rewind; ?>
             </tr>
             <tr id="pnftrader">
                 <td>Non-Ferrous Trader:</td>
@@ -1070,9 +1070,12 @@ function checkForm(thisform)
             </tr>
             <tr id="penvcert">
                 <td>Environmental Certificate on File:</td>
-                <td><input type="checkbox" name="envcert" id="cbecert"</td>
+                <td><select name="envcert">
+                        <option value"000" selected></option>
+                        <option>YES</option>
+                        <option>NO</option>
+                    </select></td>
                 <script>
-
 					$("#purchase, #sale").click(function(){
 						if (this.id == "purchase")
 							$("#penvcert").show();
@@ -1083,7 +1086,13 @@ function checkForm(thisform)
             </tr>
 			<tr id="spinvoice" >
 				<td>Print Invoice:</td>
-                <td><input type="checkbox" name="pinvoice" id="cbpinv"</td>
+                <td>
+                    <select name="pinvoice">
+                        <option value"000" selected></option>
+                        <option>YES</option>
+                        <option>NO</option>
+                    </select>
+                </td>
 				<script>					
 					$("#purchase, #sale").click(function(){
 						if (this.id == "purchase")
@@ -1119,7 +1128,13 @@ function checkForm(thisform)
 			</tr>
 			<tr id="mySelect2">
 				<td>Shipper Inv Required:</td>
-                <td><input type="checkbox" name="shiprequired" id="cbsinvreq"</td>
+                <td>
+                    <select name="shiprequired">
+                        <option value"000" selected></option>
+                        <option>YES</option>
+                        <option>NO</option>
+                    </select>
+                </td>
 				<script>					
 					$("#purchase, #sale").click(function(){
 						if (this.id == "sale")

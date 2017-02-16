@@ -84,9 +84,24 @@
 		  alert("Telephone Number required");
 		  return false;
 	  }
+		if(thisform.ContEMail.value==''){
+		  alert("Contact E-Mail required");
+		  return false;
+	  }
+	    //validate the e-mail address	
+	    if(isEmailValid(thisform.ContEMail.value)==false){
+		  alert("Enter a valid Contact e-mail address");
+		  return false;
+	  }
   }
 	
-	//validate the e-mail address	
+	//validate the Contact e-mail address	
+	if((thisform.ContEMail.value != '') && (isEmailValid(thisform.ContEMail.value)==false)){
+		alert("Enter a valid Contact e-mail address");
+		return false;
+	}
+
+	//validate the e-mail address
 	if(isEmailValid(thisform.from.value)==false){
 		  alert("Enter a valid e-mail address");
 		  return false;
@@ -125,7 +140,7 @@
 
 <div id="container">
 	<div id="primarycontainer">
-	  <form  name="addressform" id="myform" method="POST" action="addressbookemail.php">
+	  <form  name="addressform" id="myform" method="POST" action="addressbookemail.php"> 
 			<input type="hidden" name="stype" value="nsnontrade" />
 			<fieldset >
 				<legend><font size="2" ><b>Non-Trade </b></font></legend>
@@ -160,46 +175,13 @@
                 </fieldset>
                 <br />
             </div>
-            <div id="tos" style="display:none">
-                <fieldset>
-                    <legend><font size="2"><b>Non-Trade - Type of service </b></font></legend>
-                    <table width="100%" cellpadding="10" cellspacing="0" border="0">
-                        <tr>
-                            <td width="30%">
-                                <input type="radio" name="nontradeTOS" value="GOODS"> Goods<br>
-                                <input type="radio" name="nontradeTOS" value="GENERAL SERVICES"> General Services<br>
-                                <input type="radio" name="nontradeTOS" value="OTHER"> Other <input type="text" name="other" /><br>
-                            </td>
-                            <td width="35%">
-                                <input type="radio" name="nontradeTOS" value="PROFESSIONAL SVC (LEGAL, CPA ETC)"> Professional Svc (Legal, CPA etc)<br>
-                                <input type="radio" name="nontradeTOS" value="MEDICAL/HEALTH CARE PAYMENTS"> Medical/Health Care Payments<br>
-                                <input type="radio" name="nontradeTOS" value="UTILITIES"> Utilities<br>
-                            </td>
-                            <td width="35%">
-                                <input type="radio" name="nontradeTOS" value="EDUCATION"> Education<br>
-                                <input type="radio" name="nontradeTOS" value="DONATION/CONTRIBUTION"> Donation/Contribution<br>
-                                <input type="radio" name="nontradeTOS" value="REIMBURSEMENT-VEHICLE DAMAGE"> Reimbursement-vehicle Damage<br>
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <br />
-            </div>
-            <script>
-					$("#ntt2, #ntt3, #ntt4, #ntt5").click(function(){
-							if (this.value == "NON-INTERCOMPANY")
-								$("#tos").show();
-							else
-								$("#tos").hide();
-						});
-            </script>
 
             <fieldset id="ttype">
                 <legend><font size="2"><b>Transaction Type </b></font></legend>
                 <table width="100%" cellpadding="10" cellspacing="0" border="0">
                     <tr>
                         <td width="30%">
-                            <input type="radio" name="trantype" id="purchase" value="PURCHASE"/> Purchase<br>
+                            <input type="radio" name="trantype" id="purchase" value="PURCHASE" checked="checked"/> Purchase<br>
                         </td>
                         <td width="35%" style="display:none">
                             <input type="radio" name="trantype" id="sale" value="SALE" /> Sale<br>
@@ -277,28 +259,10 @@
                         <td>
                             <input type="checkbox" name="remittosame" id="RemitTosame" onClick="same_as_billing('RemitTo')" />Same as Legal
                         </td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "sale")
-							$("#RemitTo").hide();
-						else
-							$("#RemitTo").show();
-					});
-                        </script>
                     </tr>
                     <tr id="RemitToName">
                         <td>Name: </td>
                         <td><input type="text" name="RemitToName" id="RemitToName" size="50" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "sale")
-							$("#RemitToName").hide();
-						else
-							$("#RemitToName").show();
-					});
-                        </script>
                         <script>
 
 				$("#remittosameas").click(function(){
@@ -309,41 +273,14 @@
                     <tr id="RemitTomailaddress">
                         <td>Address: </td>
                         <td><input type="text" name="RemitToAddress" id="RemitToAddress" size="50" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "sale")
-							$("#RemitTomailaddress").hide();
-						else
-							$("#RemitTomailaddress").show();
-					});
-                        </script>
                     </tr>
                     <tr id="RemitTomailaddress1">
                         <td></td>
                         <td><input type="text" name="RemitToAddress1" id="RemitToAddress1" size="50" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "sale")
-							$("#RemitTomailaddress1").hide();
-						else
-							$("#RemitTomailaddress1").show();
-					});
-                        </script>
                     </tr>
                     <tr id="RemitToCity">
                         <td>City:</td>
                         <td><input type="text" name="RemitToCity" id="RemitToCity" size="35" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "sale")
-							$("#RemitToCity").hide();
-						else
-							$("#RemitToCity").show();
-					});
-                        </script>
                     </tr>
                     <tr id="RemitToState">
                         <?php $xml = simplexml_load_file("../xml/states.xml");?>
@@ -354,28 +291,10 @@
                                 <?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
                             </select>
                         </td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "sale")
-							$("#RemitToState").hide();
-						else
-							$("#RemitToState").show();
-					});
-                        </script>
                     </tr>
                     <tr id="RemitToZip">
                         <td>Mail Code:</td>
                         <td><input type="text" name="RemitToZip" id="RemitToZip" size="6" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "sale")
-							$("#RemitToZip").hide();
-						else
-							$("#RemitToZip").show();
-					});
-                        </script>
                     </tr>
                     <tr id="RemitToCountry">
                         <?php $xml = simplexml_load_file("../xml/countries.xml");?>
@@ -386,28 +305,10 @@
                                 <?php foreach ($xml->children() as $child){echo "<option> " . $child . "</option>" ."<br />";} ?>
                             </select>
                         </td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "sale")
-							$("#RemitToCountry").hide();
-						else
-							$("#RemitToCountry").show();
-					});
-                        </script>
                     </tr>
                     <!-- Leave blank line after address section -->
                     <tr id="RemitToTrailer">
                         <td><br /></td>
-                        <script>
-
-				$("#purchase, #sale, #both").click(function(){
-						if (this.id == "sale")
-							$("#RemitToTrailer").hide();
-						else
-							$("#RemitToTrailer").show();
-					});
-                        </script>
                     </tr>
 
                     <tr>
@@ -450,7 +351,7 @@
 </div>
 
 <div id="footer">
-	&copy; 2011, 2012 Omnisource. 
+	&copy; 2011, 2012, 2017 Omnisource
 </div>
 
 </body>

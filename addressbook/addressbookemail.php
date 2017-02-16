@@ -143,6 +143,9 @@ if(			$_POST["addShipToName"] != null || $_POST["addShipToAddress"]	!= null
 $message .= "_________" . "\n\n";
 $message .= "Contact:             " . $_POST["contact"]. "\n\n";
 $message .= "Contact Phone:       " . $_POST["Telephone"]. "\n\n";
+if(isset($_POST["ContEMail"]) && $_POST["ContEMail"]!= null){
+    $message .= "Contact EMail:       " . $_POST["ContEMail"]. "\n\n";
+}
 if(isset($_POST["pctype"]) && $_POST["pctype"]!= null){
 $message .= "Customer Type:       " . $_POST["pctype"]. "\n\n";
 }
@@ -160,6 +163,10 @@ $message .= "Ferrous Trader:      " . $_POST["fetrader"]. "\n\n";
 }
 if(isset($_POST["nftrader"]) && $_POST["nftrader"]!= null){
 $message .= "Non-Ferrous Trader:  " . $_POST["trader"]. "\n\n";
+}
+if(!empty("envcert")){
+    $message .= "Environmental Cert On File:       " . "YES\n\n";} else {
+    $message .= "Environmental Cert On File:       " . "NO\n\n";
 }
 if(!empty("pinvoice")){
 $message .= "Print Invoice:       " . "YES\n\n";} else {
@@ -181,6 +188,11 @@ $message .= "Comments:         \n" . $_POST["comments"]. "\n\n";
 $to = "abook@omnisource.com";
 $subject = "Address Book Contract";
 $to = "dtremain@omnisource.com";
+
+echo $to;
+echo $subject;
+echo $message;
+echo $headers;
 
 $mail_sent = @mail($to,$subject,$message, $headers);
 if($mail_sent){
