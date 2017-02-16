@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--XML Database for ctypepurchase.xml - option CTYPE-->
+<CTYPE>
+  <option>BROKER</option>
+  <option>DEMOLITION</option>
+  <option>DEALER</option>
+  <option>INDUSTRIAL</option>
+  <option>RETAIL</option>
+</CTYPE>

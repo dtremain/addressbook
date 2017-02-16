@@ -10,16 +10,8 @@ if($_POST["contracttype"] == "MODIFICATION"){
 	$message .= "Request Type:     " . $_POST["contracttype"]. ": " . "Acct# " . $_POST["acct"]. "\n\n";}
 if($_POST["contracttype"] == "NEW ACCOUNT"){
 	$message .= "Request Type:     " . $_POST["contracttype"]. "\n\n";}
-if($_POST["contracttype"] == "INSTANT PAY"){
-	$message .= "Request Type:     " . $_POST["contracttype"]. "\n\n";}
 if(isset($_POST["trantype"]) && $_POST["trantype"]!= null){
 $message .= "Transaction Type: " . $_POST["trantype"]."\n\n";
-}
-if(isset($_POST["nttype"]) && $_POST["trantype"]!= null){
-$message .= "Transaction Type: " . $_POST["trantype"]."\n\n";
-}
-if(isset($_POST["exporttype"]) && $_POST["exporttype"]!= null){
-$message .= "Export  :         " . $_POST["exporttype"]. "\n\n";
 }
 
 $message .= "_________" . "\n\n\n\n";
@@ -53,12 +45,6 @@ else if ($_POST["stype"] == "nsnontrade"){
 
 	if(isset($_POST["nttype"]) && $_POST["nttype"] != null){
 	$message .= "Non-Trade Type :       " . $_POST["nttype"] . "\n\n";
-		if($_POST["nttype"] == "NON-INTERCOMPANY"){
-			if($_POST["nontradeTOS"] == "Other"){
-	$message .= "    Type of Service :  " . $_POST["nontradeTOS"]. ": " . $_POST["other"]. "\n\n";}
-			else{
-	$message .= "    Type of Service :  " . $_POST["nontradeTOS"]. "\n\n";}
-		}
 	}
 	$message .= "Transaction Type:      " . $_POST["trantype"]. "\n\n";
 
@@ -76,8 +62,8 @@ if(isset($_POST["country"]) && $_POST["country"]!= null){
 }
 
 
-if(			$_POST["RemitToName"] != null || $_POST["RemitToAddress"]	!= null 
-		||	$_POST["RemitToCity"] != null || $_POST["RemitToState"]		!= null 
+if(			$_POST["RemitToName"] != null || $_POST["RemitToAddress"]	!= null
+		||	$_POST["RemitToCity"] != null || $_POST["RemitToState"]		!= null
 		||	$_POST["RemitToZip"]  != null || $_POST["RemitToCountry"]	!= null ){
 		$message .= "\n\n                  Remit To Address     \n\n";
 		$message .= "Name:             " . $_POST["RemitToName"]. "\n";
@@ -89,8 +75,8 @@ if(			$_POST["RemitToName"] != null || $_POST["RemitToAddress"]	!= null
 			$message .= "                  " . $_POST["RemitToCountry"] ."\n";}
 }
 
-if(			$_POST["BillToName"] != null || $_POST["BillToAddress"]	!= null 
-		||	$_POST["BillToCity"] != null || $_POST["BillToState"]		!= null 
+if(			$_POST["BillToName"] != null || $_POST["BillToAddress"]	!= null
+		||	$_POST["BillToCity"] != null || $_POST["BillToState"]		!= null
 		||	$_POST["BillToZip"]  != null || $_POST["BillToCountry"]	!= null ){
 		$message .= "\n\n                  Bill To Address     \n\n";
 		$message .= "Name:             " . $_POST["BillToName"]. "\n";
@@ -102,8 +88,8 @@ if(			$_POST["BillToName"] != null || $_POST["BillToAddress"]	!= null
 			$message .= "                  " . $_POST["BillToCountry"] ."\n";}
 }
 
-if(			$_POST["ShipFromName"] != null || $_POST["ShipFromAddress"]	!= null 
-		||	$_POST["ShipFromCity"] != null || $_POST["ShipFromState"]		!= null 
+if(			$_POST["ShipFromName"] != null || $_POST["ShipFromAddress"]	!= null
+		||	$_POST["ShipFromCity"] != null || $_POST["ShipFromState"]		!= null
 		||	$_POST["ShipFromZip"]  != null || $_POST["ShipFromCountry"]	!= null ){
 		$message .= "\n\n                  Ship From Address     \n\n";
 		$message .= "Name:             " . $_POST["ShipFromName"]. "\n";
@@ -115,8 +101,8 @@ if(			$_POST["ShipFromName"] != null || $_POST["ShipFromAddress"]	!= null
 			$message .= "                  " . $_POST["ShipFromCountry"] ."\n";}
 }
 
-if(			$_POST["addShipFromName"] != null || $_POST["addShipFromAddress"]	!= null 
-		||	$_POST["addShipFromCity"] != null || $_POST["addShipFromState"]		!= null 
+if(			$_POST["addShipFromName"] != null || $_POST["addShipFromAddress"]	!= null
+		||	$_POST["addShipFromCity"] != null || $_POST["addShipFromState"]		!= null
 		||	$_POST["addShipFromZip"]  != null || $_POST["addShipFromCountry"]	!= null ){
 		$message .= "\n\n                  Additional Ship From Address     \n\n";
 		$message .= "Name:             " . $_POST["addShipFromName"]. "\n";
@@ -128,8 +114,8 @@ if(			$_POST["addShipFromName"] != null || $_POST["addShipFromAddress"]	!= null
 			$message .= "                  " . $_POST["addShipFromCountry"] ."\n";}
 }
 
-if(			$_POST["ShipToName"] != null || $_POST["ShipToAddress"]	!= null 
-		||	$_POST["ShipToCity"] != null || $_POST["ShipToState"]		!= null 
+if(			$_POST["ShipToName"] != null || $_POST["ShipToAddress"]	!= null
+		||	$_POST["ShipToCity"] != null || $_POST["ShipToState"]		!= null
 		||	$_POST["ShipToZip"]  != null || $_POST["ShipToCountry"]	!= null ){
 		$message .= "\n\n                  Ship To Address     \n\n";
 		$message .= "Name:             " . $_POST["ShipToName"]. "\n";
@@ -141,8 +127,8 @@ if(			$_POST["ShipToName"] != null || $_POST["ShipToAddress"]	!= null
 			$message .= "                  " . $_POST["ShipToCountry"] ."\n";}
 }
 
-if(			$_POST["addShipToName"] != null || $_POST["addShipToAddress"]	!= null 
-		||	$_POST["addShipToCity"] != null || $_POST["addShipToState"]		!= null 
+if(			$_POST["addShipToName"] != null || $_POST["addShipToAddress"]	!= null
+		||	$_POST["addShipToCity"] != null || $_POST["addShipToState"]		!= null
 		||	$_POST["addShipToZip"]  != null || $_POST["addShipToCountry"]	!= null ){
 		$message .= "\n\n                  Additional Ship To Address     \n\n";
 		$message .= "Name:             " . $_POST["addShipToName"]. "\n";
@@ -155,51 +141,62 @@ if(			$_POST["addShipToName"] != null || $_POST["addShipToAddress"]	!= null
 }
 
 $message .= "_________" . "\n\n";
-$message .= "Contact:          " . $_POST["contact"]. "\n\n";
-$message .= "Contact Phone:    " . $_POST["Telephone"]. "\n\n";
+$message .= "Contact:             " . $_POST["contact"]. "\n\n";
+$message .= "Contact Phone:       " . $_POST["Telephone"]. "\n\n";
+if(isset($_POST["ContEMail"]) && $_POST["ContEMail"]!= null){
+    $message .= "Contact EMail:       " . $_POST["ContEMail"]. "\n\n";
+}
 if(isset($_POST["pctype"]) && $_POST["pctype"]!= null){
-$message .= "Customer Type:    " . $_POST["pctype"]. "\n\n";
+$message .= "Customer Type:       " . $_POST["pctype"]. "\n\n";
 }
 if(isset($_POST["sctype"]) && $_POST["sctype"]!= null){
-$message .= "Customer Type:    " . $_POST["sctype"]. "\n\n";
+$message .= "Customer Type:       " . $_POST["sctype"]. "\n\n";
 }
 if(isset($_POST["atype"]) && $_POST["atype"]!= null){
-$message .= "Account Type:     " . $_POST["atype"]. "\n\n";
+$message .= "Account Type:        " . $_POST["atype"]. "\n\n";
 }
 if(isset($_POST["trader"]) && $_POST["trader"]!= null){
-$message .= "Trader:           " . $_POST["trader"]. "\n\n";
+$message .= "Trader:              " . $_POST["trader"]. "\n\n";
 }
-if(isset($_POST["pclass"]) && $_POST["pclass"]!= null){
-$message .= "Price Class:      " . $_POST["pclass"]. "\n\n";
+if(isset($_POST["fetrader"]) && $_POST["fetrader"]!= null){
+$message .= "Ferrous Trader:      " . $_POST["fetrader"]. "\n\n";
 }
-if(isset($_POST["pinvoice"]) && $_POST["pinvoice"]!= null){
-$message .= "Print Invoice:    " . $_POST["pinvoice"]. "\n\n";
+if(isset($_POST["nftrader"]) && $_POST["nftrader"]!= null){
+$message .= "Non-Ferrous Trader:  " . $_POST["trader"]. "\n\n";
+}
+if(!empty("envcert")){
+    $message .= "Environmental Cert On File:       " . "YES\n\n";} else {
+    $message .= "Environmental Cert On File:       " . "NO\n\n";
+}
+if(!empty("pinvoice")){
+$message .= "Print Invoice:       " . "YES\n\n";} else {
+$message .= "Print Invoice:       " . "NO\n\n";
 }
 if(isset($_POST["original"]) && $_POST["original"]!= null){
-$message .= "Original Terms:   " . $_POST["original"]. "\n\n";
+$message .= "Original Terms:      " . $_POST["original"]. "\n\n";
 }
 
 
 if(isset($_POST["fterms"]) && $_POST["fterms"]!= null){
-$message .= "Final Terms:      " . $_POST["fterms"]. "\n\n";
+$message .= "Final Terms:         " . $_POST["fterms"]. "\n\n";
 }
 if(isset($_POST["shiprequired"]) && $_POST["shiprequired"]!= null){
 $message .= "Shipper Invoice Required:      " . $_POST["shiprequired"]. "\n\n";
 }
 $message .= "Comments:         \n" . $_POST["comments"]. "\n\n";
 
-if($_POST["controller"] != null && $_POST["contracttype"] == "INSTANT PAY"){
-$to = $_POST["controller"];
-$subject = "Instant Pay Approval";
-}
-else{
 $to = "abook@omnisource.com";
 $subject = "Address Book Contract";
-}
+$to = "dtremain@omnisource.com";
+
+echo $to;
+echo $subject;
+echo $message;
+echo $headers;
 
 $mail_sent = @mail($to,$subject,$message, $headers);
 if($mail_sent){
-	?>  <script type="text/javascript">
+?>  <script type="text/javascript">
 		<!--
 
 		alert ("Address Book sent successfully")
@@ -209,10 +206,9 @@ if($mail_sent){
 		</script> <?php
 }
 else {
-		?>  <script type="text/javascript">
+                  ?>  <script type="text/javascript">
 			<!--
-
-			alert ("Address Book Not sent")
+            alert("Address Book Not Sent");
 			window.location="addressbookscrap.php"
 
 			// -->

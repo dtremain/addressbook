@@ -1,0 +1,83 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>AddressBook</Name>
+    <ProjectGuid>{b495cb09-b4ca-44f5-a7f2-5eeffed061f2}</ProjectGuid>
+    <RootNamespace>
+    </RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <SpecificPageValue>index.html</SpecificPageValue>
+    <StartAction>SpecificPage</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="addressbook\addressbook.php" />
+    <Compile Include="addressbook\addressbookemail.php" />
+    <Compile Include="addressbook\addressbooknscarrier.php" />
+    <Compile Include="addressbook\addressbooknsnontrade.php" />
+    <Compile Include="addressbook\addressbookscrap.php" />
+    <Compile Include="addressbook\nonscrapchoice.php" />
+    <Compile Include="addressbook\test.html" />
+    <Compile Include="backup\addressbooknsnontrade.php" />
+    <Compile Include="backup\addressbook_prod.7z" />
+    <Compile Include="css\calendar.css" />
+    <Compile Include="css\style.css" />
+    <Compile Include="images\arrow1.gif" />
+    <Compile Include="images\arrow2.gif" />
+    <Compile Include="images\arrow_down.gif" />
+    <Compile Include="images\arrow_up.gif" />
+    <Compile Include="images\featuredLoader.gif" />
+    <Compile Include="images\loader.gif" />
+    <Compile Include="images\omni.png" />
+    <Compile Include="images\top.JPG" />
+    <Compile Include="images\top1.jpg" />
+    <Compile Include="img\cal.gif" />
+    <Compile Include="img\next_mon.gif" />
+    <Compile Include="img\next_year.gif" />
+    <Compile Include="img\no_cal.gif" />
+    <Compile Include="img\pixel.gif" />
+    <Compile Include="img\prev_mon.gif" />
+    <Compile Include="img\prev_year.gif" />
+    <Compile Include="img\shade_bl.png" />
+    <Compile Include="img\shade_bm.png" />
+    <Compile Include="img\shade_br.png" />
+    <Compile Include="img\shade_mr.png" />
+    <Compile Include="img\shade_tr.png" />
+    <Compile Include="javascripts\copyaddress.js" />
+    <Compile Include="javascripts\gen_validatorv31.js" />
+    <Compile Include="javascripts\isEmailValid.js" />
+    <Compile Include="javascripts\jquery.js" />
+    <Compile Include="javascripts\nonscrapcopyaddress.js" />
+    <Compile Include="javascripts\script.js" />
+    <Compile Include="javascripts\XulMenu.js" />
+    <Compile Include=".gitattributes" />
+    <Compile Include=".gitignore" />
+    <Compile Include="AddressBook.phpproj" />
+    <Compile Include="AddressBook.phpproj.user" />
+    <Compile Include="AddressBook.sln" />
+    <Compile Include="FEContracts.php" />
+    <Compile Include="index.html" />
+    <Compile Include="javascriptform.htm" />
+    <Compile Include="mail.php" />
+    <Compile Include="NFChangeOrders.php" />
+    <Compile Include="NFContracts.php" />
+    <Compile Include="phpinfo.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="addressbook" />
+    <Folder Include="backup" />
+    <Folder Include="css" />
+    <Folder Include="images" />
+    <Folder Include="img" />
+    <Folder Include="javascripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="javascripts\ie5.js" />
+  </ItemGroup>
+</Project>

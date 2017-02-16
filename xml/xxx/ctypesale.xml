@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--XML Database for ctypesale.xml - option CTYPE-->
+<CTYPE>
+  <option>LITTLE</option>
+  <option>WILLIE</option>
+  <option>WON'T</option>
+  <option>GO</option>
+  <option>HOME</option>
+  <option>BROKER</option>
+  <option>FOUNDRY</option>
+  <option>MILL</option>
+</CTYPE>

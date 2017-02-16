@@ -65,24 +65,24 @@
 	
 	  	  
 	 
-			<table>
+			<table width="100%">
 			<tr id="mySelect">
-				<td><input type="radio" name="selectscrap" id="scrap" value="scrap" /> Scrap<br /></td>
-				<td><input type="radio" name="selectscrap" id="nonscrap" value="nonscrap" /> Non-Scrap<br /></td>
+				<td width="30%"><input type="radio" name="selectnonscrap" id="carrier" value="CARRIER" /> Carrier<br /></td>
+				<td><input type="radio" name="selectnonscrap" id="nontrade" value="NONTRADE" /> Non-Trade<br /></td>
 			</tr>
 			
 			
                   
 			<script>
 			   
-				$("#nonscrap, #scrap").click(
+				$("#nontrade, #carrier").click(
 					function()
 					{
-						if (this.id == "scrap")
-							window.location.href = 'addressbookscrap.php';
+						if (this.id == "carrier")
+							window.location.href = 'addressbooknscarrier.php';
 						
 						else
-							window.location.href = 'nonscrapchoice.php';
+							window.location.href = 'addressbooknsnontrade.php';
 					});
 			</script>
 				

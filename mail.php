@@ -4,16 +4,15 @@
 <head>
 <title>Contracts</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<link rel="stylesheet" type="text/css" href="./css/style.css" />
  <script type="text/javascript" src="ie5.js"></script>
- <script type="text/javascript" src="../javascripts/XulMenu.js"></script>
- <script src="../javascripts/jquery.js"></script>
+ <script type="text/javascript" src="./javascripts/XulMenu.js"></script>
 </head>
 <body>
 
 <div id="header">
-	<img src="../images/top.jpg" />
-	<h1>Address Book Form</h1>
+	<img src="./images/top.jpg" />
+	<h1>Contracts</h1>
 	
 
 </div>
@@ -56,54 +55,24 @@
     </script>
 
 
-
 <div id="container">
 
 	<div id="primarycontainer">
 	
+	<p> Form Data </P>
 	
+	<form enctype="text/plain" method="POST" action="mailto:dslone@omnisource.com?subject=Address Book Form">
+Your First Name: <input type="text" name="first_name"><br>
+Your Last Name: <input type="text" name="last_name"><br>
+Comments: <textarea rows="5" cols="30" name="comments"></textarea>
+<input type="submit" value="Send">
+</form>
 	
-	  	  
-	 
-			<table>
-			<tr id="mySelect">
-				<td><input type="radio" name="selectnonscrap" id="carrier" value="CARRIER" /> Carrier<br /></td>
-				<td><input type="radio" name="selectnonscrap" id="nontrade" value="NONTRADE" /> Non-Trade<br /></td>
-			</tr>
-			
-			
-                  
-			<script>
-			   
-				$("#nontrade, #carrier").click(
-					function()
-					{
-						if (this.id == "carrier")
-							window.location.href = 'addressbooknscarrier.php';
-						
-						else
-							window.location.href = 'addressbooknsnontrade.php';
-					});
-			</script>
-				
-			
-			</table>
-	
-		
 	</div>
 
-	<div id="secondarycontent">
-
-		
 	
-		
 
-		
-
-	</div>
-
-	<div class="clearit"></div>
-
+<div class="clearit"></div>
 </div>
 
 <div id="footer">
